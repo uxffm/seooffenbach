@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const blogPosts = [
+	{
+		slug: 'was-ist-seo',
+		title: 'Was ist SEO? Ein umfassender Leitfaden für Einsteiger',
+		description: 'Erfahren Sie, was Suchmaschinenoptimierung ist und warum SEO für Ihr Unternehmen wichtig ist.',
+		date: '2024-03-15',
+		category: 'SEO Grundlagen'
+	},
+	{
+		slug: 'local-seo-offenbach',
+		title: 'Local SEO für Offenbach: So werden Sie lokal gefunden',
+		description: 'Tipps und Strategien für bessere lokale Sichtbarkeit in Offenbach und der Rhein-Main-Region.',
+		date: '2024-03-10',
+		category: 'Local SEO'
+	},
+	{
+		slug: 'keyword-recherche',
+		title: 'Keyword-Recherche: Die Grundlage jeder SEO-Strategie',
+		description: 'Wie Sie die richtigen Keywords finden und für Ihre Website nutzen.',
+		date: '2024-03-05',
+		category: 'SEO Strategie'
+	}
+];
+---
+
+<BaseLayout
+	title="SEO Blog - Tipps und Insights | SEO Agentur Offenbach"
+	description="Aktuelle Artikel, Tipps und Best Practices rund um SEO, Content-Marketing und Online-Marketing. Bleiben Sie auf dem neuesten Stand."
+>
+	<section class="blog-page">
+		<div class="container">
+			<div class="blog-hero">
+				<h1>SEO Blog</h1>
+				<p class="blog-intro">
+					Tipps, Trends und Best Practices rund um Suchmaschinenoptimierung
+				</p>
+			</div>
+
+			<div class="blog-grid">
+				{blogPosts.map(post => (
+					<article class="blog-card card">
+						<div class="blog-meta">
+							<span class="blog-category">{post.category}</span>
+							<time datetime={post.date}>
+								{new Date(post.date).toLocaleDateString('de-DE', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric'
+								})}
+							</time>
+						</div>
+						<h2>
+							<a href={`/blog/${post.slug}`}>{post.title}</a>
+						</h2>
+						<p>{post.description}</p>
+						<a href={`/blog/${post.slug}`} class="read-more">
+							Weiterlesen
+							<span class="arrow-icon">→</span>
+						</a>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.blog-page {
+		padding: 3rem 0 6rem;
+		min-height: 100vh;
+	}
+
+	.blog-hero {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.blog-hero h1 {
+		font-size: 4rem;
+		font-weight: 800;
+		color: var(--white);
+		margin-bottom: 1rem;
+	}
+
+	.blog-intro {
+		font-size: 1.25rem;
+		color: rgba(255, 255, 255, 0.8);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.blog-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+
+	.blog-card {
+		transition: transform 0.3s, box-shadow 0.3s;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.blog-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	}
+
+	.blog-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+		font-size: 0.875rem;
+		color: var(--text-secondary);
+	}
+
+	.blog-category {
+		background: var(--pink);
+		color: var(--dark);
+		padding: 0.375rem 1rem;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 700;
+	}
+
+	.blog-card h2 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		line-height: 1.3;
+	}
+
+	.blog-card h2 a {
+		text-decoration: none;
+		color: var(--text-primary);
+		transition: color 0.2s;
+	}
+
+	.blog-card h2 a:hover {
+		color: var(--pink-dark);
+	}
+
+	.blog-card p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		flex-grow: 1;
+	}
+
+	.read-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--dark);
+		text-decoration: none;
+		font-weight: 600;
+		transition: gap 0.2s;
+		padding: 0.75rem 1.5rem;
+		background: var(--pink);
+		border-radius: 25px;
+		align-self: flex-start;
+	}
+
+	.read-more:hover {
+		gap: 0.75rem;
+	}
+
+	.arrow-icon {
+		font-size: 1.25rem;
+		transition: transform 0.2s;
+	}
+
+	.read-more:hover .arrow-icon {
+		transform: translateX(3px);
+	}
+
+	@media (max-width: 768px) {
+		.blog-hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.blog-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

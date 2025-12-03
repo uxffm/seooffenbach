@@ -1,0 +1,352 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	canonical?: string;
+	ogImage?: string;
+}
+
+const { title, description, canonical, ogImage } = Astro.props;
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
+const socialImage = ogImage || '/og-image.jpg';
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(socialImage, Astro.site)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(socialImage, Astro.site)} />
+
+		<!-- Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "SEO Agentur Offenbach",
+			"description": "Professionelle SEO-Agentur in Offenbach - Suchmaschinenoptimierung, Content-Marketing und Local SEO",
+			"url": Astro.site,
+			"telephone": "+49-XXX-XXXXXXX",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Offenbach",
+				"addressRegion": "Hessen",
+				"addressCountry": "DE"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "50.1055",
+				"longitude": "8.7761"
+			},
+			"priceRange": "$$",
+			"areaServed": {
+				"@type": "City",
+				"name": "Offenbach am Main"
+			}
+		})} />
+	</head>
+	<body>
+		<header class="header">
+			<nav class="nav">
+				<div class="container">
+					<a href="/" class="logo">
+						<div class="logo-icon">SO</div>
+						<span class="logo-text">SEO Agentur Offenbach</span>
+					</a>
+					<ul class="nav-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#leistungen">Leistungen</a></li>
+						<li><a href="/blog">Blog</a></li>
+						<li><a href="/#kontakt" class="cta">Kontakt</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>SEO Agentur Offenbach</h3>
+						<p>Ihre Experten für Suchmaschinenoptimierung in Offenbach und Umgebung</p>
+					</div>
+					<div class="footer-section">
+						<h4>Services</h4>
+						<ul>
+							<li><a href="/#leistungen">SEO Optimierung</a></li>
+							<li><a href="/#leistungen">Content Marketing</a></li>
+							<li><a href="/#leistungen">Local SEO</a></li>
+							<li><a href="/#leistungen">Technisches SEO</a></li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4>Navigation</h4>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/blog">Blog</a></li>
+							<li><a href="/#kontakt">Kontakt</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; {new Date().getFullYear()} SEO Agentur Offenbach. Alle Rechte vorbehalten.</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--neon-green: #39FF14;
+		--neon-cyan: #00F0FF;
+		--neon-yellow: #DFFF00;
+		--dark-bg: #0A1828;
+		--dark-navy: #0F2027;
+		--card-dark: #1A2332;
+		--white: #ffffff;
+		--text-primary: #ffffff;
+		--text-secondary: #B0C4DE;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		line-height: 1.6;
+		color: var(--text-primary);
+		background: var(--dark-bg);
+		background-image:
+			radial-gradient(circle at 20% 50%, rgba(57, 255, 20, 0.03) 0%, transparent 50%),
+			radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.03) 0%, transparent 50%);
+		min-height: 100vh;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	/* Header & Navigation */
+	.header {
+		background: transparent;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 1000;
+		padding: 1.5rem 0;
+	}
+
+	.nav .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.logo-icon {
+		width: 40px;
+		height: 40px;
+		background: var(--white);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		color: var(--dark);
+	}
+
+	.logo-text {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--white);
+	}
+
+	.nav-links {
+		display: flex;
+		list-style: none;
+		gap: 2.5rem;
+		align-items: center;
+	}
+
+	.nav-links a {
+		text-decoration: none;
+		color: var(--white);
+		font-weight: 500;
+		transition: opacity 0.2s;
+		font-size: 0.95rem;
+	}
+
+	.nav-links a:hover {
+		opacity: 0.8;
+	}
+
+	.nav-links .cta {
+		background: var(--neon-green);
+		color: var(--dark-bg);
+		padding: 0.625rem 1.5rem;
+		border-radius: 25px;
+		font-weight: 700;
+		box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+		transition: all 0.3s;
+	}
+
+	.nav-links .cta:hover {
+		opacity: 1;
+		background: var(--neon-yellow);
+		box-shadow: 0 0 30px rgba(223, 255, 0, 0.6);
+		transform: translateY(-2px);
+	}
+
+	main {
+		margin-top: 80px;
+		min-height: calc(100vh - 80px);
+	}
+
+	/* Card Styles */
+	.card {
+		background: var(--card-dark);
+		border-radius: 20px;
+		padding: 2.5rem;
+		position: relative;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.card-neon-green {
+		background: var(--neon-green);
+		color: var(--dark-bg);
+		box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
+	}
+
+	.card-neon-cyan {
+		background: var(--neon-cyan);
+		color: var(--dark-bg);
+		box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+	}
+
+	.card-neon-yellow {
+		background: var(--neon-yellow);
+		color: var(--dark-bg);
+		box-shadow: 0 0 30px rgba(223, 255, 0, 0.3);
+	}
+
+	/* Footer */
+	.footer {
+		background: transparent;
+		color: var(--white);
+		padding: 4rem 0 2rem;
+		margin-top: 6rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 3rem;
+		margin-bottom: 2rem;
+	}
+
+	.footer-section h3 {
+		margin-bottom: 1rem;
+		color: var(--white);
+		font-size: 1.25rem;
+	}
+
+	.footer-section h4 {
+		margin-bottom: 1rem;
+		color: var(--white);
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.footer-section p {
+		color: rgba(255, 255, 255, 0.7);
+		line-height: 1.7;
+	}
+
+	.footer-section ul {
+		list-style: none;
+	}
+
+	.footer-section ul li {
+		margin-bottom: 0.75rem;
+	}
+
+	.footer-section a {
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.footer-section a:hover {
+		color: var(--white);
+	}
+
+	.footer-bottom {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 1.5rem;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.nav-links {
+			gap: 1rem;
+		}
+
+		.nav-links a {
+			font-size: 0.85rem;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.card {
+			padding: 1.5rem;
+			border-radius: 20px;
+		}
+	}
+</style>

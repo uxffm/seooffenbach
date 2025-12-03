@@ -1,0 +1,21 @@
+# robots.txt für SEO Agentur Offenbach
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://seo-agentur-offenbach.de/sitemap-index.xml
+
+# Häufige Bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Blockiere bekannte Bad Bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

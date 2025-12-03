@@ -1,0 +1,161 @@
+---
+const galleryImages = [
+	{
+		url: 'https://images.unsplash.com/photo-1580837119756-563d608dd119?q=80&w=800',
+		title: 'Limassol Promenade'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1601581987809-a874a81309c9?q=80&w=800',
+		title: 'Mediterranean Sunset'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1590073844006-33379778ae09?q=80&w=800',
+		title: 'Ancient Ruins'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800',
+		title: 'Luxury Marina'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1549144511-f099e773c147?q=80&w=800',
+		title: 'Old Town Streets'
+	},
+	{
+		url: 'https://images.unsplash.com/photo-1602002418082-a4443e081dd1?q=80&w=800',
+		title: 'Coastal Views'
+	}
+];
+---
+
+<section id="gallery" class="gallery">
+	<div class="container">
+		<h2 class="section-title">Gallery</h2>
+		<p class="section-subtitle">
+			Experience the beauty of Limassol through images
+		</p>
+		<div class="gallery-grid">
+			{galleryImages.map((image, index) => (
+				<div class="gallery-item" style={`animation-delay: ${index * 0.1}s`}>
+					<img src={image.url} alt={image.title} loading="lazy" />
+					<div class="gallery-overlay">
+						<span class="gallery-title">{image.title}</span>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.gallery {
+		padding: 6rem 0;
+		background: linear-gradient(135deg, #f5f7fa 0%, #e6f2ff 100%);
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 3rem;
+		color: var(--dark-blue);
+		margin-bottom: 1rem;
+		position: relative;
+		padding-bottom: 1rem;
+	}
+
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 4px;
+		background: var(--secondary-color);
+		border-radius: 2px;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		font-size: 1.2rem;
+		color: var(--text-light);
+		margin-bottom: 3rem;
+	}
+
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+		margin-top: 3rem;
+	}
+
+	.gallery-item {
+		position: relative;
+		overflow: hidden;
+		border-radius: 15px;
+		cursor: pointer;
+		aspect-ratio: 4 / 3;
+		opacity: 0;
+		animation: fadeInUp 0.6s ease forwards;
+	}
+
+	.gallery-item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.5s ease;
+	}
+
+	.gallery-item:hover img {
+		transform: scale(1.1);
+	}
+
+	.gallery-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+		display: flex;
+		align-items: flex-end;
+		padding: 1.5rem;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.gallery-item:hover .gallery-overlay {
+		opacity: 1;
+	}
+
+	.gallery-title {
+		color: var(--white);
+		font-size: 1.2rem;
+		font-weight: bold;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.gallery {
+			padding: 4rem 0;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.gallery-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+</style>

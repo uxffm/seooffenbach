@@ -1,0 +1,162 @@
+---
+const attractions = [
+	{
+		title: 'Limassol Castle',
+		description: 'Medieval fortress housing the Cyprus Medieval Museum, where history comes alive.',
+		image: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=800'
+	},
+	{
+		title: 'Old Town',
+		description: 'Charming narrow streets filled with traditional tavernas, artisan shops, and local culture.',
+		image: 'https://images.unsplash.com/photo-1549144511-f099e773c147?q=80&w=800'
+	},
+	{
+		title: 'Limassol Marina',
+		description: 'Luxurious waterfront with prestigious yachts, fine dining, and designer boutiques.',
+		image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=800'
+	},
+	{
+		title: 'Ancient Amathus',
+		description: 'Explore ruins of one of Cyprus\'s ancient city-kingdoms dating back to 1100 BC.',
+		image: 'https://images.unsplash.com/photo-1590073844006-33379778ae09?q=80&w=800'
+	},
+	{
+		title: 'Kourion Archaeological Site',
+		description: 'Spectacular Greco-Roman theatre with breathtaking views of the Mediterranean.',
+		image: 'https://images.unsplash.com/photo-1576843787914-4e207f5e0a5a?q=80&w=800'
+	},
+	{
+		title: 'Cyprus Wine Museum',
+		description: 'Journey through 5,000 years of winemaking history in the heart of Cyprus.',
+		image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800'
+	}
+];
+---
+
+<section id="attractions" class="attractions">
+	<div class="container">
+		<h2 class="section-title">Top Attractions</h2>
+		<p class="section-subtitle">
+			Discover the best that Limassol has to offer
+		</p>
+		<div class="attractions-grid">
+			{attractions.map((attraction) => (
+				<div class="attraction-card">
+					<div class="attraction-image" style={`background-image: url('${attraction.image}')`}>
+						<div class="attraction-overlay"></div>
+					</div>
+					<div class="attraction-content">
+						<h3>{attraction.title}</h3>
+						<p>{attraction.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.attractions {
+		padding: 6rem 0;
+		background: var(--white);
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 3rem;
+		color: var(--dark-blue);
+		margin-bottom: 1rem;
+		position: relative;
+		padding-bottom: 1rem;
+	}
+
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 4px;
+		background: var(--secondary-color);
+		border-radius: 2px;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		font-size: 1.2rem;
+		color: var(--text-light);
+		margin-bottom: 3rem;
+	}
+
+	.attractions-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
+
+	.attraction-card {
+		background: var(--white);
+		border-radius: 15px;
+		overflow: hidden;
+		box-shadow: var(--shadow);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		cursor: pointer;
+	}
+
+	.attraction-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+	}
+
+	.attraction-image {
+		height: 250px;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+	}
+
+	.attraction-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+		transition: background 0.3s ease;
+	}
+
+	.attraction-card:hover .attraction-overlay {
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+	}
+
+	.attraction-content {
+		padding: 1.5rem;
+	}
+
+	.attraction-content h3 {
+		font-size: 1.5rem;
+		color: var(--primary-color);
+		margin-bottom: 0.8rem;
+	}
+
+	.attraction-content p {
+		color: var(--text-light);
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.attractions {
+			padding: 4rem 0;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.attractions-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,125 @@
+---
+---
+
+<section id="about" class="about">
+	<div class="container">
+		<h2 class="section-title">About Limassol</h2>
+		<div class="about-grid">
+			<div class="about-card">
+				<div class="card-icon">🏛️</div>
+				<h3>Rich History</h3>
+				<p>
+					From ancient kingdoms to medieval castles, Limassol boasts over 4,000 years
+					of history. Explore the legendary Limassol Castle where Richard the Lionheart
+					married Berengaria of Navarre in 1191.
+				</p>
+			</div>
+			<div class="about-card">
+				<div class="card-icon">🏖️</div>
+				<h3>Beautiful Beaches</h3>
+				<p>
+					Miles of pristine coastline with crystal-clear Mediterranean waters await you.
+					From the popular Lady's Mile Beach to the charming Governor's Beach, there's
+					a perfect spot for everyone.
+				</p>
+			</div>
+			<div class="about-card">
+				<div class="card-icon">🍷</div>
+				<h3>Wine & Culture</h3>
+				<p>
+					Home to Cyprus's finest wineries and the legendary Commandaria wine, one of
+					the world's oldest named wines. Experience vibrant festivals, from the Wine
+					Festival to the Carnival celebrations.
+				</p>
+			</div>
+			<div class="about-card">
+				<div class="card-icon">🌆</div>
+				<h3>Modern Lifestyle</h3>
+				<p>
+					A cosmopolitan hub with luxury marinas, upscale shopping, fine dining, and
+					vibrant nightlife. Limassol perfectly blends Mediterranean charm with
+					contemporary sophistication.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about {
+		padding: 6rem 0;
+		background: var(--light-blue);
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 3rem;
+		color: var(--dark-blue);
+		margin-bottom: 3rem;
+		position: relative;
+		padding-bottom: 1rem;
+	}
+
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 4px;
+		background: var(--secondary-color);
+		border-radius: 2px;
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
+
+	.about-card {
+		background: var(--white);
+		padding: 2.5rem 2rem;
+		border-radius: 15px;
+		box-shadow: var(--shadow);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		text-align: center;
+	}
+
+	.about-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+	}
+
+	.card-icon {
+		font-size: 3.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.about-card h3 {
+		font-size: 1.5rem;
+		color: var(--primary-color);
+		margin-bottom: 1rem;
+	}
+
+	.about-card p {
+		color: var(--text-light);
+		line-height: 1.8;
+	}
+
+	@media (max-width: 768px) {
+		.about {
+			padding: 4rem 0;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.about-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

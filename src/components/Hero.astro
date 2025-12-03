@@ -1,0 +1,128 @@
+---
+---
+
+<section id="home" class="hero">
+	<div class="hero-content">
+		<h1 class="hero-title">Welcome to Limassol</h1>
+		<p class="hero-subtitle">The Jewel of the Mediterranean</p>
+		<p class="hero-description">
+			Discover the vibrant coastal city where ancient history meets modern luxury,
+			stunning beaches embrace cosmopolitan culture, and Cypriot hospitality
+			welcomes you with open arms.
+		</p>
+		<a href="#about" class="hero-button">Explore Limassol</a>
+	</div>
+	<div class="hero-overlay"></div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background: linear-gradient(135deg, #0066cc 0%, #003d82 100%);
+		background-image:
+			linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 61, 130, 0.85) 100%),
+			url('https://images.unsplash.com/photo-1580837119756-563d608dd119?q=80&w=2000');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		color: var(--white);
+		margin-top: 70px;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		max-width: 800px;
+		padding: 0 20px;
+		animation: fadeInUp 1s ease;
+	}
+
+	.hero-title {
+		font-size: 4rem;
+		font-weight: bold;
+		margin-bottom: 1rem;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.hero-subtitle {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+		color: #ffd700;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		line-height: 1.8;
+		margin-bottom: 2rem;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	}
+
+	.hero-button {
+		display: inline-block;
+		padding: 1rem 2.5rem;
+		background: var(--secondary-color);
+		color: var(--white);
+		text-decoration: none;
+		border-radius: 50px;
+		font-size: 1.1rem;
+		font-weight: bold;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+	}
+
+	.hero-button:hover {
+		background: #ff5722;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			margin-top: 60px;
+		}
+
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.5rem;
+		}
+
+		.hero-description {
+			font-size: 1rem;
+		}
+
+		.hero-button {
+			padding: 0.8rem 2rem;
+			font-size: 1rem;
+		}
+	}
+</style>
