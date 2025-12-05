@@ -1,0 +1,639 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="SEO Blog - Tipps & Trends | SEO Agentur Offenbach"
+	description="Aktuelle SEO-Tipps, Trends und Best Practices für bessere Rankings. Expertenwissen von Ihrer SEO Agentur aus Offenbach."
+>
+	<!-- Blog Hero -->
+	<section class="blog-hero">
+		<div class="container">
+			<div class="blog-hero-content">
+				<h1 class="blog-hero-title">SEO Blog</h1>
+				<p class="blog-hero-subtitle">Tipps, Trends und Best Practices für bessere Rankings</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- All Posts -->
+	<section class="all-posts">
+		<div class="container">
+			<div class="posts-grid">
+				<article class="post-card">
+					<div class="post-card-tag">📍 Local SEO</div>
+					<div class="post-meta-inline">
+						<span class="post-date-small">15. Januar 2025</span>
+					</div>
+					<h3 class="post-card-title">Warum man in Offenbach SEO machen sollte als lokales Unternehmen</h3>
+					<p class="post-card-excerpt">
+						Erfahren Sie, warum Local SEO für Unternehmen in Offenbach unverzichtbar ist und welche Strategien in allen
+						Stadtteilen von Offenbach funktionieren.
+					</p>
+					<a href="/blog/warum-seo-offenbach" class="post-card-link">Weiterlesen →</a>
+				</article>
+
+				<article class="post-card">
+					<div class="post-card-tag">⚡ News</div>
+					<div class="post-meta-inline">
+						<span class="post-date-small">12. Januar 2025</span>
+					</div>
+					<h3 class="post-card-title">Google Core Update: Was Sie jetzt wissen müssen</h3>
+					<p class="post-card-excerpt">
+						Die neuesten Änderungen am Google-Algorithmus und wie Sie Ihre Website anpassen,
+						um von den Updates zu profitieren statt bestraft zu werden.
+					</p>
+					<a href="/blog/google-core-update" class="post-card-link">Weiterlesen →</a>
+				</article>
+
+				<article class="post-card">
+					<div class="post-card-tag">💡 Tipps</div>
+					<div class="post-meta-inline">
+						<span class="post-date-small">8. Januar 2025</span>
+					</div>
+					<h3 class="post-card-title">5 SEO-Fehler, die Ihre Rankings zerstören</h3>
+					<p class="post-card-excerpt">
+						Vermeiden Sie diese häufigen Fehler und verbessern Sie Ihre Suchmaschinen-Performance.
+						Praktische Tipps für bessere Rankings.
+					</p>
+					<a href="/blog/seo-fehler" class="post-card-link">Weiterlesen →</a>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="blog-cta-section">
+		<div class="container">
+			<div class="cta-card">
+				<h2 class="cta-title">Bereit für bessere Rankings?</h2>
+				<p class="cta-text">
+					Lassen Sie uns gemeinsam Ihre SEO-Strategie entwickeln. Kontaktieren Sie uns für
+					eine kostenlose Erstberatung.
+				</p>
+				<a href="/#kontakt" class="cta-button-large">
+					<span>Jetzt Kontakt aufnehmen</span>
+					<span class="pushpin">📌</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-col">
+					<h3 class="footer-title">SEO Agentur Offenbach</h3>
+					<p class="footer-text">
+						Professionelle Suchmaschinenoptimierung für Unternehmen in Offenbach und der Rhein-Main-Region.
+					</p>
+				</div>
+				<div class="footer-col">
+					<h4 class="footer-heading">Navigation</h4>
+					<ul class="footer-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#leistungen">Leistungen</a></li>
+						<li><a href="/blog">Blog</a></li>
+						<li><a href="/#kontakt">Kontakt</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4 class="footer-heading">Leistungen</h4>
+					<ul class="footer-links">
+						<li><a href="/#leistungen">SEO Beratung</a></li>
+						<li><a href="/#leistungen">Technisches SEO</a></li>
+						<li><a href="/#leistungen">Local SEO</a></li>
+						<li><a href="/#leistungen">Link Building</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4 class="footer-heading">Kontakt</h4>
+					<ul class="footer-links">
+						<li>📍 Offenbach am Main</li>
+						<li>📧 kontakt@seo-agentur-offenbach.de</li>
+						<li>📞 +49 (0) XXX XXXXXXX</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2025 SEO Agentur Offenbach. Alle Rechte vorbehalten.</p>
+			</div>
+		</div>
+	</footer>
+</BaseLayout>
+
+<style>
+	/* Blog Hero */
+	.blog-hero {
+		background: var(--dark-petrol);
+		background-image:
+			radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+		background-size: 40px 40px;
+		padding: 8rem 0 6rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.blog-hero-content {
+		max-width: 900px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.blog-hero-title {
+		font-family: var(--font-display);
+		font-size: 5rem;
+		font-weight: 900;
+		color: #ffffff;
+		margin-bottom: 1.5rem;
+		line-height: 1;
+		letter-spacing: -0.03em;
+	}
+
+	.blog-hero-subtitle {
+		font-family: var(--font-display);
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: rgba(255, 255, 255, 0.85);
+		line-height: 1.4;
+	}
+
+	/* Featured Post */
+	.featured-post {
+		padding: 6rem 0;
+		background: #ffffff;
+	}
+
+	.featured-tag {
+		display: inline-block;
+		background: var(--neon-yellow);
+		color: #000;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 1rem;
+		padding: 0.75rem 1.5rem;
+		border-radius: 50px;
+		border: 3px solid #000;
+		margin-bottom: 2rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.featured-card {
+		background: var(--neon-mint);
+		padding: 4rem;
+		border-radius: 20px;
+		border: 4px solid #000;
+		box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+		transition: transform 0.3s ease;
+	}
+
+	.featured-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.post-meta {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.post-category {
+		background: #ffffff;
+		color: #000;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 0.875rem;
+		padding: 0.5rem 1rem;
+		border-radius: 50px;
+		border: 2px solid #000;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.post-date {
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		color: #000;
+		font-weight: 700;
+	}
+
+	.featured-title {
+		font-family: var(--font-display);
+		font-size: 3rem;
+		font-weight: 900;
+		color: #000;
+		line-height: 1.2;
+		margin-bottom: 1.5rem;
+		letter-spacing: -0.02em;
+	}
+
+	.featured-excerpt {
+		font-size: 1.25rem;
+		line-height: 1.7;
+		color: #000;
+		margin-bottom: 2.5rem;
+		font-weight: 500;
+	}
+
+	.article-content {
+		color: #000;
+		line-height: 1.8;
+	}
+
+	.intro-text {
+		font-size: 1.25rem;
+		line-height: 1.7;
+		color: #000;
+		margin-bottom: 2.5rem;
+		font-weight: 600;
+	}
+
+	.article-content h3 {
+		font-family: var(--font-display);
+		font-size: 2rem;
+		font-weight: 900;
+		color: #000;
+		margin-top: 2.5rem;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+		letter-spacing: -0.01em;
+	}
+
+	.article-content p {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: #000;
+		margin-bottom: 1.5rem;
+		font-weight: 500;
+	}
+
+	.article-content strong {
+		font-family: var(--font-display);
+		font-weight: 800;
+		color: #000;
+	}
+
+	.featured-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 1rem;
+		background: #000;
+		color: var(--neon-mint);
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 1.25rem;
+		padding: 1.25rem 2.5rem;
+		border-radius: 100px;
+		text-decoration: none;
+		box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+		transition: all 0.3s ease;
+	}
+
+	.featured-link:hover {
+		transform: translateY(-3px);
+		box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.4);
+	}
+
+	.featured-link .arrow {
+		font-size: 1.5rem;
+		transition: transform 0.3s ease;
+	}
+
+	.featured-link:hover .arrow {
+		transform: translateX(5px);
+	}
+
+	/* All Posts */
+	.all-posts {
+		padding: 6rem 0;
+		background: #ffffff;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2.5rem;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.post-card {
+		background: #ffffff;
+		padding: 2.5rem;
+		border-radius: 15px;
+		border: 3px solid #000;
+		box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: transform 0.3s ease;
+		position: relative;
+	}
+
+	.post-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.post-card-tag {
+		display: inline-block;
+		background: var(--neon-lime);
+		color: #000;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 0.875rem;
+		padding: 0.5rem 1rem;
+		border-radius: 50px;
+		border: 2px solid #000;
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.post-meta-inline {
+		margin-bottom: 1rem;
+	}
+
+	.post-date-small {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: #666;
+		font-weight: 700;
+	}
+
+	.post-card-title {
+		font-family: var(--font-display);
+		font-size: 1.5rem;
+		font-weight: 900;
+		color: #000;
+		line-height: 1.3;
+		margin-bottom: 1rem;
+		letter-spacing: -0.01em;
+	}
+
+	.post-card-excerpt {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #333;
+		margin-bottom: 1.5rem;
+	}
+
+	.post-card-link {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 1rem;
+		color: #000;
+		text-decoration: none;
+		display: inline-block;
+		transition: transform 0.2s ease;
+	}
+
+	.post-card-link:hover {
+		transform: translateX(5px);
+	}
+
+	/* CTA Section */
+	.blog-cta-section {
+		padding: 6rem 0 0;
+		background: #ffffff;
+	}
+
+	.cta-card {
+		background: var(--dark-petrol);
+		background-image:
+			radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+		background-size: 40px 40px;
+		padding: 5rem 4rem;
+		border-radius: 25px;
+		border: 4px solid #000;
+		box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.2);
+		text-align: center;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.cta-title {
+		font-family: var(--font-display);
+		font-size: 3rem;
+		font-weight: 900;
+		color: #ffffff;
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+
+	.cta-text {
+		font-size: 1.25rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 2.5rem;
+		font-weight: 500;
+	}
+
+	.cta-button-large {
+		display: inline-flex;
+		align-items: center;
+		gap: 1rem;
+		background: var(--neon-lime);
+		color: #000;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 1.25rem;
+		padding: 1.5rem 3rem;
+		border-radius: 100px;
+		border: 3px solid #000;
+		text-decoration: none;
+		box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.cta-button-large:hover {
+		transform: translateY(-3px);
+		box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+	}
+
+	.pushpin {
+		font-size: 1.5rem;
+		transform: rotate(45deg);
+	}
+
+	/* Footer */
+	.footer {
+		background: var(--dark-petrol);
+		background-image:
+			radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+		background-size: 40px 40px;
+		padding: 5rem 0 2rem;
+		border-top: 3px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.footer-col {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.footer-title {
+		font-family: var(--font-display);
+		font-size: 1.5rem;
+		font-weight: 900;
+		color: #ffffff;
+		margin-bottom: 1rem;
+		letter-spacing: -0.01em;
+	}
+
+	.footer-text {
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.footer-heading {
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 1rem;
+		color: #ffffff;
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.footer-links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-links li {
+		margin-bottom: 0.75rem;
+		font-size: 0.9375rem;
+	}
+
+	.footer-links a {
+		color: rgba(255, 255, 255, 0.8);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-links a:hover {
+		color: var(--neon-lime);
+	}
+
+	.footer-bottom {
+		padding-top: 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		text-align: center;
+	}
+
+	.footer-bottom p {
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.875rem;
+		margin: 0;
+	}
+
+	/* Responsive */
+	@media (max-width: 1024px) {
+		.blog-hero-title {
+			font-size: 4rem;
+		}
+
+		.featured-title {
+			font-size: 2.5rem;
+		}
+
+		.article-content h3 {
+			font-size: 1.75rem;
+		}
+
+		.article-content p {
+			font-size: 1rem;
+		}
+
+		.posts-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 1rem;
+		}
+
+		.blog-hero {
+			padding: 5rem 0 4rem;
+		}
+
+		.blog-hero-title {
+			font-size: 3rem;
+		}
+
+		.blog-hero-subtitle {
+			font-size: 1.125rem;
+		}
+
+		.featured-post {
+			padding: 4rem 0;
+		}
+
+		.featured-card {
+			padding: 2.5rem;
+		}
+
+		.featured-title {
+			font-size: 2rem;
+		}
+
+		.intro-text {
+			font-size: 1rem;
+		}
+
+		.article-content h3 {
+			font-size: 1.5rem;
+			margin-top: 2rem;
+		}
+
+		.article-content p {
+			font-size: 0.9375rem;
+		}
+
+		.posts-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.post-card {
+			padding: 2rem;
+			box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+		}
+
+		.cta-card {
+			padding: 3rem 2rem;
+			box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+		}
+
+		.cta-title {
+			font-size: 2rem;
+		}
+
+		.cta-text {
+			font-size: 1rem;
+		}
+
+		.cta-button-large {
+			padding: 1.25rem 2rem;
+			font-size: 1rem;
+		}
+
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+		}
+	}
+</style>
