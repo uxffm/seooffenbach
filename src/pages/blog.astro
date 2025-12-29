@@ -1,5 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date): string {
+	return new Intl.DateTimeFormat('de-DE', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	}).format(date);
+}
+
+function getCategoryEmoji(category: string): string {
+	const emojiMap: Record<string, string> = {
+		'KI & Technologie': '🤖',
+		'Local SEO': '📍',
+		'Technical SEO': '⚙️',
+		'Content SEO': '✍️'
+	};
+	return emojiMap[category] || '📝';
+}
 ---
 
 <BaseLayout
@@ -20,44 +42,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<section class="all-posts">
 		<div class="container">
 			<div class="posts-grid">
-				<article class="post-card">
-					<div class="post-card-tag">📍 Local SEO</div>
-					<div class="post-meta-inline">
-						<span class="post-date-small">15. Januar 2025</span>
-					</div>
-					<h3 class="post-card-title">Warum man in Offenbach SEO machen sollte als lokales Unternehmen</h3>
-					<p class="post-card-excerpt">
-						Erfahren Sie, warum Local SEO für Unternehmen in Offenbach unverzichtbar ist und welche Strategien in allen
-						Stadtteilen von Offenbach funktionieren.
-					</p>
-					<a href="/blog/warum-seo-offenbach" class="post-card-link">Weiterlesen →</a>
-				</article>
-
-				<article class="post-card">
-					<div class="post-card-tag">⚡ News</div>
-					<div class="post-meta-inline">
-						<span class="post-date-small">12. Januar 2025</span>
-					</div>
-					<h3 class="post-card-title">Google Core Update: Was Sie jetzt wissen müssen</h3>
-					<p class="post-card-excerpt">
-						Die neuesten Änderungen am Google-Algorithmus und wie Sie Ihre Website anpassen,
-						um von den Updates zu profitieren statt bestraft zu werden.
-					</p>
-					<a href="/blog/google-core-update" class="post-card-link">Weiterlesen →</a>
-				</article>
-
-				<article class="post-card">
-					<div class="post-card-tag">💡 Tipps</div>
-					<div class="post-meta-inline">
-						<span class="post-date-small">8. Januar 2025</span>
-					</div>
-					<h3 class="post-card-title">5 SEO-Fehler, die Ihre Rankings zerstören</h3>
-					<p class="post-card-excerpt">
-						Vermeiden Sie diese häufigen Fehler und verbessern Sie Ihre Suchmaschinen-Performance.
-						Praktische Tipps für bessere Rankings.
-					</p>
-					<a href="/blog/seo-fehler" class="post-card-link">Weiterlesen →</a>
-				</article>
+				{sortedPosts.map((post) => (
+					<article class="post-card">
+						<div class="post-card-tag">{getCategoryEmoji(post.data.category)} {post.data.category}</div>
+						<div class="post-meta-inline">
+							<span class="post-date-small">{formatDate(post.data.pubDate)}</span>
+						</div>
+						<h3 class="post-card-title">{post.data.title}</h3>
+						<p class="post-card-excerpt">
+							{post.data.description}
+						</p>
+						<a href={`/blog/${post.slug}`} class="post-card-link">Weiterlesen →</a>
+					</article>
+				))}
 			</div>
 		</div>
 	</section>

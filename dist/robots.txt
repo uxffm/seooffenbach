@@ -5,4 +5,4 @@ Disallow: /wichtig
 Disallow: /datenschutz
 Disallow: /danke
 
-Sitemap: https://seo-agentur-offenbach.de/sitemap.xml
+Sitemap: https://seo-agentur-offenbach.de/sitemap-index.xml

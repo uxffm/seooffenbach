@@ -1,20 +1,50 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const blogEntries = await getCollection('blog');
+	return blogEntries.map(entry => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+function formatDate(date: Date): string {
+	return new Intl.DateTimeFormat('de-DE', {
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	}).format(date);
+}
+
+function getCategoryEmoji(category: string): string {
+	const emojiMap: Record<string, string> = {
+		'KI & Technologie': '🤖',
+		'Local SEO': '📍',
+		'Technical SEO': '⚙️',
+		'Content SEO': '✍️'
+	};
+	return emojiMap[category] || '📝';
+}
 ---
 
 <BaseLayout
-	title="Warum man in Offenbach SEO machen sollte als lokales Unternehmen | SEO Agentur Offenbach"
-	description="Erfahren Sie, warum Local SEO für Unternehmen in Offenbach unverzichtbar ist. Strategien für mehr Sichtbarkeit in allen Stadtteilen von Offenbach."
+	title={`${entry.data.title} | SEO Agentur Offenbach`}
+	description={entry.data.description}
 >
 	<!-- Blog Hero -->
 	<section class="blog-hero">
 		<div class="container">
 			<div class="blog-hero-content">
 				<div class="post-meta">
-					<span class="post-category">📍 Local SEO</span>
-					<span class="post-date">15. Januar 2025</span>
+					<span class="post-category">{getCategoryEmoji(entry.data.category)} {entry.data.category}</span>
+					<span class="post-date">{formatDate(entry.data.pubDate)}</span>
 				</div>
-				<h1 class="article-hero-title">Warum man in Offenbach SEO machen sollte als lokales Unternehmen</h1>
+				<h1 class="article-hero-title">{entry.data.title}</h1>
 			</div>
 		</div>
 	</section>
@@ -23,114 +53,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	<article class="article-wrapper">
 		<div class="container">
 			<div class="article-content">
-				<p class="intro-text">
-					Offenbach am Main ist mit über 130.000 Einwohnern die fünftgrößte Stadt in Hessen und ein wichtiger
-					Wirtschaftsstandort in der Rhein-Main-Region. Doch wie können lokale Unternehmen in dieser dynamischen
-					Stadt online gefunden werden? Die Antwort liegt in professioneller Suchmaschinenoptimierung.
-				</p>
-
-				<h2>Die digitale Transformation in Offenbach</h2>
-				<p>
-					Die Digitalisierung hat das Kaufverhalten grundlegend verändert. Heute suchen 97% der Verbraucher online
-					nach lokalen Unternehmen und Dienstleistungen. Ob Restaurant in der Berliner Straße, Handwerksbetrieb in
-					Bürgel oder Anwaltskanzlei am Mainufer – wer online nicht gefunden wird, existiert für potenzielle Kunden
-					faktisch nicht.
-				</p>
-
-				<h2>Warum Local SEO in Offenbach besonders wichtig ist</h2>
-				<p>
-					<strong>1. Starke lokale Konkurrenz:</strong> Offenbach ist geprägt von einer vielfältigen Unternehmenslandschaft.
-					Vom Gewerbegebiet Kaiserlei über die Innenstadt bis zu den Stadtteilen Bieber, Rumpenheim und Waldheim –
-					überall kämpfen Unternehmen um die Aufmerksamkeit der Kunden. Wer in den lokalen Suchergebnissen nicht auf
-					der ersten Seite erscheint, verliert wertvolle Kunden an die Konkurrenz.
-				</p>
-
-				<p>
-					<strong>2. Nähe zu Frankfurt:</strong> Die direkte Nachbarschaft zur Finanzmetropole Frankfurt bringt sowohl
-					Chancen als auch Herausforderungen. Viele Offenbacher suchen gezielt nach lokalen Alternativen zu Frankfurter
-					Anbietern. Mit gezieltem Local SEO können Sie genau diese Zielgruppe erreichen und die geographische Nähe zu
-					Frankfurt als Vorteil nutzen.
-				</p>
-
-				<p>
-					<strong>3. Diverse Stadtteile mit unterschiedlichen Bedürfnissen:</strong> Offenbach besteht aus zehn
-					verschiedenen Stadtteilen – Innenstadt, Bieber, Bürgel, Rumpenheim, Kaiserlei, Lauterborn, Rosenhöhe,
-					Tempelsee, Mathildenviertel und Waldheim. Jeder Stadtteil hat seine eigene Charakteristik und Zielgruppe.
-					Mit Local SEO können Sie gezielt Kunden in Ihrem Einzugsgebiet ansprechen.
-				</p>
-
-				<h2>Die Vorteile von SEO für Offenbacher Unternehmen</h2>
-				<p>
-					<strong>Kostengünstige Kundenakquise:</strong> Im Vergleich zu traditioneller Printwerbung oder bezahlten
-					Google Ads bietet SEO langfristig die günstigste Form der Kundengewinnung. Einmal erreichte gute Rankings
-					generieren kontinuierlich neue Anfragen – ohne laufende Werbekosten.
-				</p>
-
-				<p>
-					<strong>Höhere Conversion-Rate:</strong> Nutzer, die organisch über Google kommen, haben in der Regel eine
-					höhere Kaufabsicht als Besucher aus anderen Kanälen. Sie suchen aktiv nach einer Lösung und sind bereit,
-					eine Kaufentscheidung zu treffen.
-				</p>
-
-				<p>
-					<strong>Messbare Erfolge:</strong> Moderne SEO-Tools ermöglichen es, jeden Aspekt Ihrer Online-Performance
-					zu messen. Sie sehen genau, wie viele Besucher über welche Keywords kommen, welche Stadtteile die meisten
-					Anfragen generieren und wo Optimierungspotenzial besteht.
-				</p>
-
-				<p>
-					<strong>Wettbewerbsvorteil:</strong> Viele lokale Unternehmen in Offenbach vernachlässigen noch immer ihre
-					Online-Präsenz. Wer jetzt in professionelles SEO investiert, kann sich einen nachhaltigen Vorsprung
-					gegenüber der Konkurrenz sichern.
-				</p>
-
-				<h2>Spezifische SEO-Strategien für Offenbach</h2>
-				<p>
-					<strong>Google My Business Optimierung:</strong> Ein vollständig optimiertes Google My Business Profil ist
-					das Fundament für Local SEO Erfolg. Sorgen Sie für aktuelle Öffnungszeiten, hochwertige Fotos und regelmäßige
-					Beiträge. Sammeln Sie positive Bewertungen und reagieren Sie zeitnah auf Kundenrezensionen.
-				</p>
-
-				<p>
-					<strong>Lokale Keywords nutzen:</strong> Integrieren Sie Offenbach und spezifische Stadtteile in Ihre
-					Keyword-Strategie. Begriffe wie "Steuerberater Offenbach Innenstadt", "Restaurant Kaiserlei" oder
-					"Autowerkstatt Bieber" haben oft weniger Konkurrenz als generische Begriffe.
-				</p>
-
-				<p>
-					<strong>Lokale Backlinks aufbauen:</strong> Vernetzen Sie sich mit anderen Offenbacher Unternehmen,
-					lokalen Vereinen und Organisationen. Backlinks von lokalen Websites signalisieren Google die Relevanz
-					für den Standort Offenbach.
-				</p>
-
-				<p>
-					<strong>Mobile Optimierung:</strong> 70% aller lokalen Suchanfragen erfolgen über mobile Geräte. Eine
-					mobiloptimierte Website mit schnellen Ladezeiten ist daher unverzichtbar für Local SEO Erfolg.
-				</p>
-
-				<h2>Die Rhein-Main-Region als Einzugsgebiet</h2>
-				<p>
-					Offenbachs strategische Lage in der Rhein-Main-Region eröffnet zusätzliche Chancen. Mit gezieltem SEO
-					können Sie nicht nur Kunden aus Offenbach selbst ansprechen, sondern auch aus den umliegenden Städten
-					wie Frankfurt, Hanau, Dreieich oder Mühlheim am Main. Die gute Verkehrsanbindung macht Offenbach zu
-					einem attraktiven Standort für Kunden aus der gesamten Region.
-				</p>
-
-				<h2>Fazit: Jetzt in Local SEO investieren</h2>
-				<p>
-					Für lokale Unternehmen in Offenbach führt kein Weg an professionellem SEO vorbei. Die Investition zahlt
-					sich durch kontinuierliche Neukundengewinnung, verbesserte Sichtbarkeit und einen klaren Wettbewerbsvorteil
-					aus. Je früher Sie beginnen, desto schneller können Sie von den Vorteilen profitieren und Ihre Position
-					im Offenbacher Markt stärken.
-				</p>
-
-				<p>
-					Als spezialisierte SEO-Agentur in Offenbach kennen wir die lokalen Besonderheiten und wissen genau,
-					welche Strategien in dieser Region funktionieren. Lassen Sie uns gemeinsam Ihre Online-Sichtbarkeit
-					maximieren und mehr Kunden aus Offenbach und der gesamten Rhein-Main-Region gewinnen.
-				</p>
+				<Content />
 
 				<div class="article-cta">
+					<h3>Benötigen Sie professionelle Unterstützung bei Ihrer SEO-Strategie?</h3>
+					<p>Als erfahrene SEO Agentur in Offenbach helfen wir Ihnen, die richtige Balance zwischen KI-Automatisierung
+					und menschlicher Expertise zu finden.</p>
 					<a href="/#kontakt" class="cta-button-large">
 						<span>Jetzt Kontakt aufnehmen</span>
 						<span class="pushpin">📌</span>
@@ -232,7 +160,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 	.article-hero-title {
 		font-family: var(--font-display);
-		font-size: 4rem;
+		font-size: 3.5rem;
 		font-weight: 900;
 		color: #ffffff;
 		line-height: 1.1;
@@ -250,7 +178,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		margin: 0 auto;
 	}
 
-	.intro-text {
+	.article-content :global(p:first-of-type) {
 		font-size: 1.375rem;
 		line-height: 1.7;
 		color: #000;
@@ -258,7 +186,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		font-weight: 600;
 	}
 
-	.article-content h2 {
+	.article-content :global(h1) {
+		font-family: var(--font-display);
+		font-size: 2.75rem;
+		font-weight: 900;
+		color: #000;
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+
+	.article-content :global(h2) {
 		font-family: var(--font-display);
 		font-size: 2.25rem;
 		font-weight: 900;
@@ -269,7 +208,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		letter-spacing: -0.01em;
 	}
 
-	.article-content p {
+	.article-content :global(h3) {
+		font-family: var(--font-display);
+		font-size: 1.75rem;
+		font-weight: 800;
+		color: #000;
+		margin-top: 2.5rem;
+		margin-bottom: 1.25rem;
+		line-height: 1.3;
+	}
+
+	.article-content :global(p) {
 		font-size: 1.125rem;
 		line-height: 1.8;
 		color: #333;
@@ -277,19 +226,72 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		font-weight: 500;
 	}
 
-	.article-content strong {
+	.article-content :global(ul) {
+		margin: 2rem 0;
+		padding-left: 2rem;
+	}
+
+	.article-content :global(li) {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: #333;
+		margin-bottom: 1rem;
+		font-weight: 500;
+	}
+
+	.article-content :global(strong) {
 		font-family: var(--font-display);
 		font-weight: 800;
 		color: #000;
+	}
+
+	.article-content :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 2rem 0;
+		border: 3px solid #000;
+	}
+
+	.article-content :global(th) {
+		background: var(--neon-lime);
+		color: #000;
+		font-family: var(--font-display);
+		font-weight: 800;
+		padding: 1rem;
+		text-align: left;
+		border: 2px solid #000;
+	}
+
+	.article-content :global(td) {
+		padding: 1rem;
+		border: 2px solid #000;
+		font-size: 1rem;
+		line-height: 1.6;
 	}
 
 	.article-cta {
 		margin-top: 4rem;
 		text-align: center;
 		padding: 3rem;
-		background: #f5f5f5;
+		background: var(--dark-petrol);
+		background-image:
+			radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+		background-size: 40px 40px;
 		border-radius: 20px;
 		border: 3px solid #000;
+	}
+
+	.article-cta h3 {
+		font-family: var(--font-display);
+		font-size: 2rem;
+		font-weight: 900;
+		color: #ffffff;
+		margin-bottom: 1rem;
+	}
+
+	.article-cta p {
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: 2rem;
 	}
 
 	.cta-button-large {
@@ -419,23 +421,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		}
 
 		.article-hero-title {
-			font-size: 2.5rem;
+			font-size: 2rem;
 		}
 
 		.article-wrapper {
 			padding: 4rem 0;
 		}
 
-		.intro-text {
+		.article-content :global(p:first-of-type) {
 			font-size: 1.125rem;
 		}
 
-		.article-content h2 {
+		.article-content :global(h2) {
 			font-size: 1.75rem;
 			margin-top: 2rem;
 		}
 
-		.article-content p {
+		.article-content :global(h3) {
+			font-size: 1.5rem;
+		}
+
+		.article-content :global(p) {
 			font-size: 1rem;
 		}
 
