@@ -246,7 +246,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; 2025 SEO Agentur Offenbach. Alle Rechte vorbehalten.</p>
+				<p>&copy; 2025 SEO Agentur Offenbach. Alle Rechte vorbehalten. | <a href="/wichtig">Impressum</a> | <a href="/datenschutz">Datenschutz</a></p>
 			</div>
 		</div>
 	</footer>
@@ -1113,6 +1113,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		color: rgba(255, 255, 255, 0.6);
 		font-size: 0.875rem;
 		margin: 0;
+	}
+
+	.footer-bottom a {
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-bottom a:hover {
+		color: var(--neon-lime);
 	}
 
 	/* Responsive */
