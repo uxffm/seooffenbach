@@ -46,7 +46,7 @@ Die Einführung von UCP und KI-gestütztem Shopping hat direkte Folgen für die 
 
 In Googles neuem AI Mode (dem KI-Modus der Suche) können Nutzer künftig Produkte finden und kaufen, ohne jemals auf die Website des Händlers zu gehen. Für produktbezogene Suchanfragen bedeutet das: Die klassische **Click-Through-Rate (CTR)** von den organischen Ergebnissen zur Händlerseite könnte sinken, wenn immer mehr Nutzer den Kauf schon innerhalb von Google abschließen.
 
-SEO muss sich daher erweitern – es geht nicht mehr nur darum, auf der ersten Seite der Suchergebnisse präsent zu sein, sondern darum, **in den KI-Empfehlungen und Aktionen aufzutauchen**. Mit anderen Worten: Online-Shops müssen sicherstellen, dass ihre Produkte und Marken von der KI „verstanden" und vorgeschlagen werden, wenn Nutzer in der Suche z.B. nach Produktempfehlungen fragen.
+SEO muss sich daher erweitern – es geht nicht mehr nur darum, auf der ersten Seite der Suchergebnisse präsent zu sein, sondern darum, **in den KI-Empfehlungen und Aktionen aufzutauchen**. Mit anderen Worten: Online-Shops müssen sicherstellen, dass ihre Produkte und Marken von der KI „verstanden" und vorgeschlagen werden, wenn Nutzer in der Suche z.B. nach Produktempfehlungen fragen.  
 
 ### SEO ist nicht tot – aber es erweitert sich
 
