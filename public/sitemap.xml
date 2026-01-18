@@ -18,6 +18,13 @@
 
   <!-- Blog Artikel -->
   <url>
+    <loc>https://seo-agentur-offenbach.de/blog/sichtbarkeit-chatgpt-erhoehen</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://seo-agentur-offenbach.de/blog/universal-commerce-protocol-ucp</loc>
     <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
