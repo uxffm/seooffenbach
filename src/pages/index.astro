@@ -5,14 +5,15 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('blog');
 const latestPosts = allPosts
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 2);
+	.slice(0, 3);
 
 function getCategoryEmoji(category: string): string {
 	const emojiMap: Record<string, string> = {
 		'KI & Technologie': '🤖',
 		'Local SEO': '📍',
 		'Technical SEO': '⚙️',
-		'Content SEO': '✍️'
+		'Content SEO': '✍️',
+		'E-Commerce & SEO': '🛒'
 	};
 	return emojiMap[category] || '📝';
 }
