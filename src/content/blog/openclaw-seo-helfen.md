@@ -89,7 +89,7 @@ Durch die Nutzung des Chrome DevTools Model Context Protocols (MCP) kann OpenCla
 Im Vergleich zu klassischen Desktop-Crawlern bietet die agentenbasierte Lösung von OpenClaw eine neue Ebene der Interaktivität und Skalierbarkeit.
 
 | Feature | Screaming Frog | Sitebulb | OpenClaw |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Ausführungsmodell | Lokal (Desktop) | Lokal / Cloud Hybrid | Selbstgehosteter Agent |
 | Datenausgabe | Tabellarische Rohdaten | Visuelle Berichte | Narrative Insights & Aktionen |
 | Automatisierung | Via CLI / Skripte | Integriertes Scheduling | Native Cron-Jobs & Trigger |
@@ -141,7 +141,7 @@ Zusätzlich besteht die Gefahr durch bösartige Drittanbieter-Skills. Da Skills 
 Um die Vorteile der Automatisierung ohne unkalkulierbare Risiken nutzen zu können, müssen Unternehmen eine mehrstufige Verteidigungsstrategie implementieren.
 
 | Schutzmaßnahme | Implementierung | Ziel |
-|---|---|---|
+| --- | --- | --- |
 | Sandboxing | Betrieb in Docker-Containern oder Cloudflare Sandboxes | Begrenzung des Zugriffsbereichs des Agenten |
 | Least Privilege | Ausführung unter einem dedizierten Nutzerkonto ohne Root-Rechte | Minimierung des Schadenspotenzials bei Kompromittierung |
 | Gateway-Security | Nutzung von VPNs oder Cloudflare Access für Remote-Zugriff | Verhinderung des unbefugten Zugriffs über das Internet |
@@ -192,7 +192,7 @@ OpenClaw basiert auf Node.js. Du brauchst mindestens Version 22.
 
 **Schritt 2:** Führe diesen Befehl aus:
 
-```
+```bash
 openclaw onboard --install-daemon
 ```
 
@@ -252,7 +252,7 @@ Kein anderes Tool macht das so. Screaming Frog sagt dir, dass etwas kaputt ist. 
 ### OpenClaw vs. klassische SEO-Tools: Ein direkter Vergleich
 
 | Feature | Screaming Frog | Sitebulb | OpenClaw |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Ausführungsmodell | Lokal (Desktop) | Lokal / Cloud | Selbstgehosteter Agent |
 | Datenausgabe | Rohdaten | Visuelle Berichte | Narrative Insights & Aktionen |
 | Automatisierung | Via CLI / Skripte | Scheduling | Native Cron-Jobs & Trigger |
